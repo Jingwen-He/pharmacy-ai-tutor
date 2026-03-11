@@ -11,7 +11,7 @@ class VectorStore:
 
     def __init__(self):
         self.embedding_model = SentenceTransformer(Settings.EMBEDDING_MODEL)
-        self.client = chromadb.PersistentClient(path=Settings.CHROMA_PERSIST_DIR)
+        self.client = chromadb.EphemeralClient()
         self.collection = self.client.get_or_create_collection(
             name=Settings.CHROMA_COLLECTION_NAME,
             metadata={"hnsw:space": "cosine"},
