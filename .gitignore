@@ -1,0 +1,13 @@
+# Environment variables (API keys)
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Processed vector store data
+data/processed/
+
+# OS files
+.DS_Store
