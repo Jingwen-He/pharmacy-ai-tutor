@@ -33,7 +33,7 @@ class OrchestratorAgent:
     def __init__(self):
         self.llm = ChatAnthropic(
             model=Settings.MODEL_NAME,
-            api_key=Settings.ANTHROPIC_API_KEY,
+            api_key=Settings.get_api_key(),
             max_tokens=256,
             temperature=0,
         )

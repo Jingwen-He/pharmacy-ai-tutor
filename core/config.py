@@ -7,7 +7,9 @@ load_dotenv()
 class Settings:
     """Application settings loaded from environment variables."""
 
-    ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
+    @classmethod
+    def get_api_key(cls) -> str:
+        return os.getenv("ANTHROPIC_API_KEY", "")
     MODEL_NAME: str = "claude-sonnet-4-20250514"
 
     # Embedding settings
@@ -29,6 +31,7 @@ class Settings:
     @classmethod
     def validate(cls) -> bool:
         """Check that required settings are configured."""
-        if not cls.ANTHROPIC_API_KEY or cls.ANTHROPIC_API_KEY == "sk-ant-xxxxxxxxxxxxx":
+        key = cls.get_api_key()
+        if not key or key == "sk-ant-xxxxxxxxxxxxx":
             return False
         return True

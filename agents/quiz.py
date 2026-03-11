@@ -16,7 +16,7 @@ class QuizAgent:
     def __init__(self):
         self.llm = ChatAnthropic(
             model=Settings.MODEL_NAME,
-            api_key=Settings.ANTHROPIC_API_KEY,
+            api_key=Settings.get_api_key(),
             max_tokens=2048,
             temperature=0.7,  # Higher temperature for question variety
         )
